@@ -3,7 +3,7 @@ import React from "react";
 const NewsLetter = () => {
   return (
     <>
-      <section className="pb-24">
+      <section >
         <div
           className="hero min-h-[600px]"
           style={{
