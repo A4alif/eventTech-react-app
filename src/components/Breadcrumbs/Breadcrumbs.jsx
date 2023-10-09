@@ -1,6 +1,6 @@
 import React from "react";
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({title}) => {
   return (
     <div className="background-gradientall py-24">
       <div className="container mx-auto">
@@ -10,7 +10,7 @@ const Breadcrumbs = () => {
             <a>Home</a>
           </li>
           <li>
-            <a>Booking</a>
+            <a>{title}</a>
           </li>
           
         </ul>

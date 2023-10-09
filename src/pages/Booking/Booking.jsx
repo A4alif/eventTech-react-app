@@ -7,7 +7,7 @@ const Booking = () => {
   return (
     <>
       <section>
-        <Breadcrumbs />
+        <Breadcrumbs title={"Booking"} />
         <CallToAction />
         <Contact />
       </section>
