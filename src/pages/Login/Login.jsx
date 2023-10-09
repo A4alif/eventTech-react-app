@@ -2,11 +2,22 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const handleGoogle = () => {
+    googleSignIn()
+    .then( (result) => {
+      navigate( location?.state ? location.state : "/")
+    })
+    .catch( (error) => {
+      toast(error.message);
+    })
+  }
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -82,12 +93,15 @@ const Login = () => {
                         </p>
                       </div>
                       <div className="divider">Login With</div>
-                      <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 flex justify-center ">
+                      
+                    </form>
+                   <div className="flex justify-center">
+                   <button onClick={handleGoogle} className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 flex justify-center  ">
                         {" "}
                         <FcGoogle className="mr-4" size={20} /> Sign In with
                         Google
                       </button>
-                    </form>
+                   </div>
                   </div>
                 </div>
               </div>

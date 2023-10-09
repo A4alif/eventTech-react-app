@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaLocationDot, FaRegEnvelope } from "react-icons/fa6";
 import { AiOutlinePhone } from "react-icons/ai";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const CallToAction = () => {
+  const {user} = useContext(AuthContext)
   return (
     <div className="pb-12">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold pt-24">
-          Welcome !!! <span className="single-text-gradient">Alif </span>{" "}
+          Welcome !!! <span className="single-text-gradient">{user?.displayName} </span>{" "}
         </h2>
         <p className="text-md pt-4 text-gray-500">Book Your Event Now</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-9 px-4">
