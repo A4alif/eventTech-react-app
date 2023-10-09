@@ -23,7 +23,7 @@ const ServiceDetails = () => {
     <>
       <section className="text-white">
         <div
-          className="min-h-[300px]"
+          className="min-h-[300px]  "
           style={{
             backgroundImage:
               "url(https://i.postimg.cc/Y23JPTrY/single-details-short.jpg)",

@@ -46,6 +46,20 @@ const Navbar = () => {
                 </li>
                 <li>
                   <NavLink
+                    to="/booking"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-blue-600 underline"
+                        : ""
+                    }
+                  >
+                    Booking
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
                     to="/about"
                     className={({ isActive, isPending }) =>
                       isPending
@@ -56,20 +70,6 @@ const Navbar = () => {
                     }
                   >
                     About
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/contact"
-                    className={({ isActive, isPending }) =>
-                      isPending
-                        ? "pending"
-                        : isActive
-                        ? "text-blue-600 underline"
-                        : ""
-                    }
-                  >
-                    Contact
                   </NavLink>
                 </li>
               </ul>
@@ -96,6 +96,18 @@ const Navbar = () => {
                 Home
               </NavLink>
               <NavLink
+                to="/booking"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "text-blue-600 underline"
+                    : ""
+                }
+              >
+                Booking
+              </NavLink>
+              <NavLink
                 to="/about"
                 className={({ isActive, isPending }) =>
                   isPending
@@ -106,18 +118,6 @@ const Navbar = () => {
                 }
               >
                 About
-              </NavLink>
-              <NavLink
-                to="/contact"
-                className={({ isActive, isPending }) =>
-                  isPending
-                    ? "pending"
-                    : isActive
-                    ? "text-blue-600 underline"
-                    : ""
-                }
-              >
-                Contact
               </NavLink>
             </ul>
           </div>
