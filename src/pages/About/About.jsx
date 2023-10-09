@@ -2,6 +2,7 @@ import React from "react";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import Sponsors from "../../components/Sponsors/Sponsors";
 import Price from "../../components/Price/Price";
+import Teams from "../../components/Teams/Teams";
 
 const About = () => {
   return (
@@ -12,6 +13,9 @@ const About = () => {
       </div>
       <div className="mb-20">
         <Price />
+      </div>
+      <div className="mb-16">
+        <Teams />
       </div>
     </section>
   );

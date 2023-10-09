@@ -1,0 +1,44 @@
+ [
+  {
+    "id": 1,
+    "img": "https://i.postimg.cc/YSgK0FS1/team-Member1.jpg",
+    "name": "Adam Leno",
+    "profession": "CEO EventTech",
+    "desc": "The leader and visionary responsible for guiding the company's overall strategy and decision-making."
+  },
+  {
+    "id": 2,
+    "img": "https://i.postimg.cc/J46W2mgB/team-Member2.jpg",
+    "name": "Anne Claire",
+    "profession": "Event Manager",
+    "desc": "Oversees the planning, organization, and execution of events, ensuring they run smoothly and meet client objectives."
+  },
+  {
+    "id": 3,
+    "img": "https://i.postimg.cc/cLPGdhdx/team-Member3.jpg",
+    "name": "Kevin Diks",
+    "profession": "Marketing Director",
+    "desc": "Develops and implements marketing strategies to promote the company's services and attract clients."
+  },
+  {
+    "id": 4,
+    "img": "https://i.postimg.cc/655XcTHX/team-Member4.jpg",
+    "name": "Lara Cloft",
+    "profession": "Technical Specialist",
+    "desc": "Provides technical expertise and support, particularly for tech-focused events, ensuring all technical aspects run seamlessly."
+  },
+  {
+    "id": 5,
+    "img": "https://i.postimg.cc/rwDL63XZ/team-Member5.jpg",
+    "name": "Robert Dawn",
+    "profession": "Technical Specialist",
+    "desc": "Nurtures client relationships, understands their needs, and ensures their satisfaction throughout the event planning process."
+  },
+  {
+    "id": 6,
+    "img": "https://i.postimg.cc/bYRP119g/team-Member6.jpg",
+    "name": "Garrett Ventura",
+    "profession": "Client Relations Manager",
+    "desc": "Brings innovative and creative ideas to event concepts, designs, and branding, adding a unique touch to each event."
+  }
+]
