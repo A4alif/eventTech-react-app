@@ -15,6 +15,16 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
+    let regexPattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+    if( password.length < 6){
+      toast("Password should be at least 6 characters")
+      return;
+    }
+    if(!regexPattern.test(password)){
+      toast("Password should be at least 6 characters, One UpperCase, LowerCase and special Character")
+      return;
+    }
     createUser(email, password)
     .then( (result) => {
       toast("Registration Successfully")

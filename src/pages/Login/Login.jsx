@@ -28,7 +28,7 @@ const Login = () => {
         navigate( location?.state ? location.state : "/")
       })
       .catch((error) => {
-        console.log(error.message);
+        toast(error.message)
       });
   }
   return (
