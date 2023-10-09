@@ -1,8 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then((result) => {
+        navigate( location?.state ? location.state : "/")
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
   return (
     <>
       <section>
@@ -25,7 +42,7 @@ const Login = () => {
                     <h2 className="text-center text-2xl md:text-3xl font-semibold mt-6">
                       Please Login In
                     </h2>
-                    <form className="card-body">
+                    <form onSubmit={handleSignIn} className="card-body">
                       <div className="form-control">
                         <label className="label">
                           <span className="label-text">Email</span>
@@ -52,7 +69,7 @@ const Login = () => {
                       </div>
                       <div className="form-control mt-6">
                         <button
-                          type="button"
+                         
                           className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"
                         >
                           Login
