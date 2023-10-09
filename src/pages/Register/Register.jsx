@@ -1,39 +1,37 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../../Firebase/Firebase.config";
 const Register = () => {
-
-    const {createUser, setUser} = useContext(AuthContext)
+  const { createUser, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
-    let currentUser ;
-    console.log('button clicked');
+
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
     createUser(email, password)
-    .then(result => {
-      currentUser = result;
-      console.log(currentUser);
-      updateProfile(result.user, {
-        displayName:name,
-        
-      })
-      .then(() => {
-        setUser((prev) => {
-          prev.displayName = name;
-          return {...prev};
-        })
-        console.log('profile Updated');
-      })
-      .catch((error) => {
+    .then( (result) => {
+      toast("Registration Successfully")
+      navigate("/");
+      console.log(result.user);
+      updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photo
+      }).then(() => {
+        console.log('profile updated successfully');
+      }).catch((error) => {
         console.log(error.message);
-      })
+      });
     })
-    .catch(error => console.error(error));
-  }
+    .catch( (error) => {
+      toast(error.message)
+    })
+  };
   return (
     <>
       <section>
@@ -78,7 +76,6 @@ const Register = () => {
                           type="text"
                           placeholder="photo-url"
                           className="input input-bordered"
-                          
                         />
                       </div>
                       <div className="form-control">
@@ -106,11 +103,8 @@ const Register = () => {
                         />
                       </div>
                       <div className="form-control mt-6">
-                        <button
-                          
-                          className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"
-                        >
-                        Register
+                        <button className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2">
+                          Register
                         </button>
                         <p className="text-sm mt-4 text-gray-600">
                           Already have an account{" "}
@@ -119,7 +113,6 @@ const Register = () => {
                           </span>{" "}
                         </p>
                       </div>
-                      
                     </form>
                   </div>
                 </div>
